@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		863C250223E8896500AFD478 /* Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863C250123E8896500AFD478 /* Mask.swift */; };
 		864443FB23DF6E8800476DB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864443FA23DF6E8800476DB9 /* AppDelegate.swift */; };
 		864443FD23DF6E8800476DB9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 864443FC23DF6E8800476DB9 /* art.scnassets */; };
 		864443FF23DF6E8800476DB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864443FE23DF6E8800476DB9 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		863C250123E8896500AFD478 /* Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mask.swift; sourceTree = "<group>"; };
 		864443F723DF6E8800476DB9 /* ScenekitExploration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScenekitExploration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		864443FA23DF6E8800476DB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		864443FC23DF6E8800476DB9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -103,12 +105,13 @@
 			children = (
 				864443FA23DF6E8800476DB9 /* AppDelegate.swift */,
 				864443FC23DF6E8800476DB9 /* art.scnassets */,
-				864443FE23DF6E8800476DB9 /* ViewController.swift */,
 				8644440023DF6E8800476DB9 /* Main.storyboard */,
 				8644440323DF6E8A00476DB9 /* Assets.xcassets */,
 				8644440523DF6E8A00476DB9 /* LaunchScreen.storyboard */,
 				8644440823DF6E8A00476DB9 /* Info.plist */,
 				8644442A23DF706C00476DB9 /* DeepLabV3.mlmodel */,
+				864443FE23DF6E8800476DB9 /* ViewController.swift */,
+				863C250123E8896500AFD478 /* Mask.swift */,
 			);
 			path = ScenekitExploration;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8644442B23DF706C00476DB9 /* DeepLabV3.mlmodel in Sources */,
+				863C250223E8896500AFD478 /* Mask.swift in Sources */,
 				864443FF23DF6E8800476DB9 /* ViewController.swift in Sources */,
 				864443FB23DF6E8800476DB9 /* AppDelegate.swift in Sources */,
 			);

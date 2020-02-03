@@ -27,9 +27,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     var maskNode : SCNNode!
     var maskMaterial : SCNMaterial!
-    private var maskBuffer: CVPixelBuffer?
-    private var maskImage: CIImage?
-    private var maskContents: CGImage?
+    var mask: Mask!
+//    private var maskBuffer: CVPixelBuffer?
+//    private var maskImage: CIImage?
 
 
     var planeColor = UIColor.brown;
@@ -72,7 +72,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         print("created");
         print(Int(self.currentDrawableSize!.width));
         print(Int(self.currentDrawableSize!.height));
-        CVPixelBufferCreate(kCFAllocatorDefault, 100, 100, kCVPixelFormatType_32ARGB, nil, &self.maskBuffer)
+        mask = Mask();
+//        CVPixelBufferCreate(kCFAllocatorDefault, 100, 100, kCVPixelFormatType_32ARGB, nil, &self.maskBuffer)
         
         // Begin Loop to Update CoreML
         loopCoreMLUpdate()
@@ -138,11 +139,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         self.segmentation = (observations[0] as? VNCoreMLFeatureValueObservation)!.featureValue.multiArrayValue
 //        print("modify");
-        modifyBuffer(from: maskBuffer!);
+        self.mask.drawHole();
         
-        VTCreateCGImageFromCVPixelBuffer(maskBuffer!, options: nil, imageOut: &maskContents);
+//        VTCreateCGImageFromCVPixelBuffer(maskBuffer!, options: nil, imageOut: &maskContents);
         
-        maskMaterial.diffuse.contents = maskContents;
+        maskMaterial.diffuse.contents = mask.generateImage();
 //        DispatchQueue.main.async {
 //            self.maskMaterial.diffuse.contents = maskCGImage
 //        }
@@ -185,46 +186,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         maskNode.renderingOrder = -1
         
         sceneView.pointOfView?.presentation.addChildNode(maskNode!)
-    }
-    
-    private func modifyBuffer(from pixelBuffer: CVPixelBuffer) -> Void {
-        let kBytesPerPixel = 4;
-        CVPixelBufferLockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0));
-//        let bufferWidth = Int(CVPixelBufferGetWidth(pixelBuffer)); //828
-//        let bufferHeight = Int(CVPixelBufferGetHeight(pixelBuffer));  //804
-        let bufferWidth = 100;
-        let bufferHeight = 100;
-        let bytesPerRow = CVPixelBufferGetBytesPerRow(pixelBuffer); //3328 = 4 * 828
-        guard let baseAddress = CVPixelBufferGetBaseAddress(pixelBuffer) else {
-                return
-        }
-        
-        for row in 0..<bufferHeight {
-            var pixel = baseAddress + row * bytesPerRow
-            for col in 0..<bufferWidth {
-                let blue = pixel
-                if ((col-50) * (col - 50) + (row-50) * (row - 50) < 100) {
-                    blue.storeBytes(of: 255, as: UInt8.self)
-                } else {
-                    blue.storeBytes(of: 0, as: UInt8.self)
-                }
-                
-                let red = pixel + 1
-                red.storeBytes(of: 0, as: UInt8.self)
-             
-
-                let green = pixel + 2
-                green.storeBytes(of: 0, as: UInt8.self)
-
-                let alpha = pixel + 3
-                alpha.storeBytes(of: 0, as: UInt8.self)
-
-                pixel += kBytesPerPixel;
-            }
-
-        }
-
-        CVPixelBufferUnlockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
