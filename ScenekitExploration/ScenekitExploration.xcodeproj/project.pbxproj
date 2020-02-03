@@ -15,6 +15,7 @@
 		8644440723DF6E8A00476DB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8644440523DF6E8A00476DB9 /* LaunchScreen.storyboard */; };
 		8644441223DF6E8A00476DB9 /* ScenekitExplorationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8644441123DF6E8A00476DB9 /* ScenekitExplorationTests.swift */; };
 		8644441D23DF6E8A00476DB9 /* ScenekitExplorationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8644441C23DF6E8A00476DB9 /* ScenekitExplorationUITests.swift */; };
+		8644442B23DF706C00476DB9 /* DeepLabV3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8644442A23DF706C00476DB9 /* DeepLabV3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		8644441823DF6E8A00476DB9 /* ScenekitExplorationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScenekitExplorationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8644441C23DF6E8A00476DB9 /* ScenekitExplorationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenekitExplorationUITests.swift; sourceTree = "<group>"; };
 		8644441E23DF6E8A00476DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8644442A23DF706C00476DB9 /* DeepLabV3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				8644440323DF6E8A00476DB9 /* Assets.xcassets */,
 				8644440523DF6E8A00476DB9 /* LaunchScreen.storyboard */,
 				8644440823DF6E8A00476DB9 /* Info.plist */,
+				8644442A23DF706C00476DB9 /* DeepLabV3.mlmodel */,
 			);
 			path = ScenekitExploration;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8644442B23DF706C00476DB9 /* DeepLabV3.mlmodel in Sources */,
 				864443FF23DF6E8800476DB9 /* ViewController.swift in Sources */,
 				864443FB23DF6E8800476DB9 /* AppDelegate.swift in Sources */,
 			);
